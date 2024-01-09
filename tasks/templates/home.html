@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    {% extends "bases/base.html" %}
+    
+    {% block content %}
+    <main class="container py-5">
+        <section class="card card-body">
+        <h1 class="display-1 text-center">Django App</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur quaerat porro laboriosam aliquam architecto ullam vel maiores minima nesciunt, eum tenetur debitis ducimus ab fugit illo molestiae voluptates aperiam odit illum esse cupiditate unde hic. Quasi mollitia dolorem atque itaque quae minus perspiciatis repellat aliquam sed, expedita sequi perferendis eveniet cupiditate praesentium adipisci explicabo libero voluptates labore nulla! Illum alias quos in minus atque maiores commodi a? Soluta, error deleniti repellat ullam porro sunt animi. Maiores incidunt unde illo recusandae esse maxime nulla explicabo dolor vero cum sit ad accusamus rem ea labore, harum quam quibusdam molestiae quasi praesentium!</p>
+        
+
+        <div class="text-center">
+            <a class="btn btn-primary" href="{% url "Entrar" %}">
+                Entrar
+            </a>
+            <a class="btn btn-primary" href="{% url "Signup" %}">
+                Crear cuenta
+            </a>
+        </div>
+    </section>
+</main>
+{% endblock %}    
+</body>
+</html>

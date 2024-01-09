@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "bases/base.html" %}
+
+    {% block content %}
+
+    {{error}}
+
+    <h1>Detalles de la Tarea</h1>
+    <header>
+        {% if tarea.important != False %}
+        Titulo=<strong>{{tarea.title}}</strong>
+        <p>Descripcion={{tarea.description}}</p>
+        <p>Usuario={{tarea.user}}</p>
+        <p> Importante</p>
+    {% else %}
+        Titulo=<p>{{tarea.title}}</p>
+        <p>Descripcion={{tarea.description}}</p>
+        <p>Usuario={{tarea.user}}</p>
+        <p> No es importante</p>
+    {% endif %}
+    </header>
+    
+    
+
+    <p> {{tarea.datecompleted|date:"M j y"}} </p>
+
+    <h1>Actualizar la tarea</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Update
+        </button>
+    </form>
+
+    <form action="{% url "tarea_completada" tarea.id %}" method="POST">
+        {% csrf_token %}
+        <button>
+            Completado
+        </button>
+
+    </form>
+
+    <form action="{% url "tarea_eliminada" tarea.id %}" method="POST">
+        {% csrf_token %}
+        <button>
+            Eliminar
+        </button>
+
+    </form>
+    
+    
+    
+
+    {% endblock %}
+</body>
+</html>
